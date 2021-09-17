@@ -34,13 +34,11 @@ class MoviesList extends React.Component {
     }
     showGenre = (event) => {
         let userInput = String(event.target.value)
-        console.log(userInput)
         if (userInput.length === 0) {
             this.setState({ moviesList: movies })
         } else {
             let moviesListCopy = movies.slice()
             let tempArr = moviesListCopy.filter(e => e.genres[0].toLowerCase() === userInput.toLowerCase())
-            console.log(tempArr)
             this.setState({ moviesList: tempArr })
         }
         this.setState({ genreInput: userInput })
