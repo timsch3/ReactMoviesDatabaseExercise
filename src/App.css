@@ -8,7 +8,7 @@
 .moviesListInputs {
   padding: 20px;
 }
-.moviesListInputs > button, input {
+.moviesListInputs > button {
   padding: 10px;
   background-color: #30475E;
   color: #E8E8E8;
@@ -20,6 +20,10 @@
 }
 .moviesListInputs > input {
   margin-left: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #30475E;
+  color: #E8E8E8;
 }
 
 /* Movies list */

@@ -5,31 +5,26 @@ import MovieCard from './MovieCard';
 class MoviesList extends React.Component {
     state = {
         moviesList: movies,
-        genreInput: String()
+        genreInput: ''
     }
     sortByRating = () => {
-        let tempArr = this.state.moviesList.slice()
-        tempArr.sort((a, b) => b.rating - a.rating)
+        let tempArr = this.state.moviesList.slice().sort((a, b) => b.rating - a.rating)
         this.setState({ moviesList: tempArr })
     }
     sortByOldest = () => {
-        let tempArr = this.state.moviesList.slice()
-        tempArr.sort((a, b) => a.year - b.year)
+        let tempArr = this.state.moviesList.slice().sort((a, b) => a.year - b.year)
         this.setState({ moviesList: tempArr })
     }
     sortByNewest = () => {
-        let tempArr = this.state.moviesList.slice()
-        tempArr.sort((a, b) => b.year - a.year)
+        let tempArr = this.state.moviesList.slice().sort((a, b) => b.year - a.year)
         this.setState({ moviesList: tempArr })
     }
     sortAZ = () => {
-        let tempArr = this.state.moviesList.slice()
-        tempArr.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))
+        let tempArr = this.state.moviesList.slice().sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))
         this.setState({ moviesList: tempArr })
     }
     sortZA = () => {
-        let tempArr = this.state.moviesList.slice()
-        tempArr.sort((a, b) => (b.title > a.title) ? 1 : ((a.title > b.title) ? -1 : 0))
+        let tempArr = this.state.moviesList.slice().sort((a, b) => (b.title > a.title) ? 1 : ((a.title > b.title) ? -1 : 0))
         this.setState({ moviesList: tempArr })
     }
     showGenre = (event) => {
@@ -37,8 +32,9 @@ class MoviesList extends React.Component {
         if (userInput.length === 0) {
             this.setState({ moviesList: movies })
         } else {
-            let moviesListCopy = movies.slice()
-            let tempArr = moviesListCopy.filter(e => e.genres[0].toLowerCase() === userInput.toLowerCase())
+            let tempArr = movies.slice().filter(e => e.genres.length === 1 ?
+                e.genres[0].toLowerCase() === userInput.toLowerCase() :
+                e.genres.find(e => e.toLowerCase() === userInput.toLowerCase()))
             this.setState({ moviesList: tempArr })
         }
         this.setState({ genreInput: userInput })
