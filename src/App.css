@@ -1,24 +1,28 @@
 .App {
   text-align: center;
   background-color: #222831;
+  color: #E8E8E8;
 }
 
-/* Buttons */
-.moviesListButtons {
+/* Inputs */
+.moviesListInputs {
   padding: 20px;
 }
-.moviesListButtons > button {
+.moviesListInputs > button, input {
   padding: 10px;
   background-color: #30475E;
   color: #E8E8E8;
   border-radius: 5px;
   font-size: 1rem;
 }
-.moviesListButtons > button:not(last-of-type) {
+.moviesListInputs > button:not(last-of-type) {
   margin-right: 10px;
 }
+.moviesListInputs > input {
+  margin-left: 5px;
+}
 
-/* Movie list */
+/* Movies list */
 .moviesListCards {
   display: flex;
   flex-wrap: wrap;
