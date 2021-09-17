@@ -35,8 +35,7 @@ class MoviesList extends React.Component {
     showGenre = (event) => {
         let userInput = String(event.target.value)
         console.log(userInput)
-        if (userInput.length == 0) {
-            console.log('EMPTY')
+        if (userInput.length === 0) {
             this.setState({ moviesList: movies })
         } else {
             let moviesListCopy = movies.slice()
