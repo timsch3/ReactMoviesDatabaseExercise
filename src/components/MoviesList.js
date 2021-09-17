@@ -39,16 +39,20 @@ class MoviesList extends React.Component {
         }
         this.setState({ genreInput: userInput })
     }
+    clearGenreInput = () => {
+        this.setState({ genreInput: '' })
+        this.setState({ moviesList: movies })
+    }
     render() {
         return (
             <div>
                 <div className='moviesListInputs'>
-                    <button onClick={this.sortByRating}>Sort by rating</button>
-                    <button onClick={this.sortByOldest}>Sort by oldest</button>
-                    <button onClick={this.sortByNewest}>Sort by newest</button>
-                    <button onClick={this.sortAZ}>Sort A - Z</button>
-                    <button onClick={this.sortZA}>Sort Z - A</button>
-                    Only show genre:<input type="text" value={this.state.genreInput} onChange={(event) => this.showGenre(event)} />
+                    <button onClick={this.sortByRating} className='sortButton'>Sort by rating</button>
+                    <button onClick={this.sortByOldest} className='sortButton'>Sort by oldest</button>
+                    <button onClick={this.sortByNewest} className='sortButton'>Sort by newest</button>
+                    <button onClick={this.sortAZ} className='sortButton'>Sort A - Z</button>
+                    <button onClick={this.sortZA} className='sortButton'>Sort Z - A</button>
+                    Only show genre:<input type="text" value={this.state.genreInput} onChange={(event) => this.showGenre(event)} /><button id='clearGenreButton' onClick={this.clearGenreInput}>X</button>
                 </div>
                 <div className='moviesListCards'>
                     {this.state.moviesList.map(e => <MovieCard key={e.title}
